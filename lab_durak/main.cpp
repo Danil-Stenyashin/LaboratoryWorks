@@ -1,4 +1,18 @@
-#include <iostream>
+#include "Durak.cpp"
 
 int main() {
-    std::cout << "Hello, dear player. Now we ready to start the game and I should know your name. Please, input here:"
+    int numPlayers;
+    std::cout << "Введите количество игроков (2-6): ";
+    std::cin >> numPlayers;
+
+    if (numPlayers < 2 || numPlayers > 6) {
+        std::cout << "Ошибка! Количество игроков должно быть от 2 до 6.\n";
+        return 1;
+    }
+
+    Game game(numPlayers);
+    game.start();
+
+    return 0;
+}
+

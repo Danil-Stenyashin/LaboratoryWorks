@@ -1,0 +1,20 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -Werror
+SRC = Durak.cpp main.cpp
+OBJ = $(SRC:.cpp=.o)
+EXEC = durak
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(EXEC) $(OBJ)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(EXEC)
+
+run: all
+	./$(EXEC)
+
